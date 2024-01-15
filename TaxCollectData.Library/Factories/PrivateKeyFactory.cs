@@ -12,4 +12,10 @@ public class PrivateKeyFactory
         var privateKeyPemReader = new PemReader(File.OpenText(privateKeyPath));
         return DotNetUtilities.ToRSA((RsaPrivateCrtKeyParameters)privateKeyPemReader.ReadObject());
     }
+
+    public RSA ReadPrivateKey(TextReader privateKeyReader)
+    {
+        var privateKeyPemReader = new PemReader(privateKeyReader);
+        return DotNetUtilities.ToRSA((RsaPrivateCrtKeyParameters)privateKeyPemReader.ReadObject());
+    }
 }

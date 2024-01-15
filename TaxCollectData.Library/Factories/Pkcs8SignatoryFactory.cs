@@ -1,4 +1,5 @@
 using TaxCollectData.Library.Abstraction.Cryptography;
+using TaxCollectData.Library.Abstraction.Providers;
 using TaxCollectData.Library.Providers;
 
 namespace TaxCollectData.Library.Factories;
@@ -21,6 +22,18 @@ public class Pkcs8SignatoryFactory
     {
         var privateKey = _privateKeyFactory.ReadPrivateKeyFromFile(privateKeyPath);
         var x509Certificate = _x509CertificateFactory.ReadCertificateFromFile(certificatePath);
+        return _signatoryFactory.Create(privateKey, x509Certificate);
+    }
+
+    /// <summary>
+    /// Creates and instance of Pkcs8Signatory initialized with provided Certificate and Privatekey
+    /// </summary>
+    /// <param name="certificateProvider"></param>
+    /// <returns></returns>
+    public ISignatory Create(ICertificateProvider certificateProvider)
+    {
+        var privateKey = _privateKeyFactory.ReadPrivateKey(certificateProvider.GetPrivateKeyReader());
+        var x509Certificate = _x509CertificateFactory.ReadCertificate(certificateProvider.GetCertificateReader());
         return _signatoryFactory.Create(privateKey, x509Certificate);
     }
 }
