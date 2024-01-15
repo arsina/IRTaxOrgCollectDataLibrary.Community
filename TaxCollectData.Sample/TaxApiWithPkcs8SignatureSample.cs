@@ -6,12 +6,12 @@ namespace TaxCollectData.Sample;
 
 internal class TaxApiWithPkcs8SignatureSample
 {
-    private const string ClientId = "A1117Z";
+    private const string ClientId = "A11226";
 
     private const string BaseUrl = "http://master.nta.local/requestsmanager";
     // private const string BaseUrl = "http://localhost:8055/requestsmanager/api";
-    private const string PrivateKeyPath = @"MohammadAminSalemi_expire.key";
-    private const string CertificatePath = @"MohammadAminSalemi_expire.cer";
+    private const string PrivateKeyPath = @"privatekey1.pem";
+    private const string CertificatePath = @"cert1.crt";
 
     private readonly SampleTest _sampleTest = new();
 

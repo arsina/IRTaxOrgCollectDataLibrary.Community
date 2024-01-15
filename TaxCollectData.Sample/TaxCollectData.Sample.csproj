@@ -18,12 +18,6 @@
         <Content Include="cert1.crt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="MohammadAminSalemi_expire.cer">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="MohammadAminSalemi_expire.key">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
         <Content Update="ShuttleCsp11_3003.dll">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>

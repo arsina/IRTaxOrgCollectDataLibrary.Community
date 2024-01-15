@@ -8,11 +8,11 @@ public class SampleTest
 
     public void Run(string clientId, ITaxPublicApi publicApi, ITaxApi taxApi)
     {
-        // var startDate = new DateTime(2023, 5, 1, 3, 4, 5, DateTimeKind.Local);
-        // var endDate = new DateTime(2023, 5, 17, 3, 4, 5, DateTimeKind.Local);
+        var startDate = new DateTime(2023, 5, 1, 3, 4, 5, DateTimeKind.Local);
+        var endDate = new DateTime(2023, 5, 17, 3, 4, 5, DateTimeKind.Local);
         var serverInformation = publicApi.GetServerInformation();
-        // var inquiryResultModels = taxApi.InquiryByTime(new(startDate)); 
-        // var inquiryRangeResultModels = taxApi.InquiryByTime(new(startDate, endDate));
+        var inquiryResultModels = taxApi.InquiryByTime(new(startDate)); 
+        var inquiryRangeResultModels = taxApi.InquiryByTime(new(startDate, endDate));
         var invoices = _sampleInvoiceCreator.Create(clientId, 1);
         var responsePacketModels = taxApi.SendInvoices(invoices);
         var referenceNumbers = responsePacketModels.Select(r => r.ReferenceNumber).ToList();

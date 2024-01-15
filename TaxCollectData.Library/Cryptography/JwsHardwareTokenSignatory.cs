@@ -14,7 +14,7 @@ namespace TaxCollectData.Library.Cryptography;
 public class JwsHardwareTokenSignatory : ISignatory
 {
     private readonly X509Certificate2 _parsedCertificate;
-    private readonly RS512Algorithm _algorithm;
+    private readonly RS256Algorithm _algorithm;
     private readonly ILogger? _logger;
     private const string Jose = "jose";
     private const string SigT = "sigT";
@@ -31,11 +31,11 @@ public class JwsHardwareTokenSignatory : ISignatory
     {
         var pkcs11X509Certificate = GetCertificateFromStore(certificateAlias, pkcs11LibraryPath, pin);
         _parsedCertificate = pkcs11X509Certificate.Info.ParsedCertificate;
-        _algorithm = new RS512Algorithm(pkcs11X509Certificate.GetRSAPublicKey(), pkcs11X509Certificate.GetRSAPrivateKey());
+        _algorithm = new RS256Algorithm(pkcs11X509Certificate.GetRSAPublicKey(), pkcs11X509Certificate.GetRSAPrivateKey());
         _logger = logger;
     }
     
-    public JwsHardwareTokenSignatory(RS512Algorithm algorithm,
+    public JwsHardwareTokenSignatory(RS256Algorithm algorithm,
         X509Certificate2 certificate,
         ILogger? logger = null)
     {

@@ -31,6 +31,7 @@ public class BodyItemDto
     public long? tsstam { get; set; }
     public decimal? nw { get; set; }
     public long? ssrv { get; set; }
-    public long? sscv { get; set; }
+    public decimal? sscv { get; set; }
     public decimal? pspd { get; set; }
+    public decimal? cui { get; set; }
 }
